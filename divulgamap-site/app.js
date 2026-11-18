@@ -1,6 +1,6 @@
 // Configuração do download
-const APK_URL = "https://github.com/Lotth00/DivulgaMap/releases/download/v1.0.2/divulgamap.apk";
-const VERSAO = "1.0.2";
+const APK_URL = "https://github.com/Lotth00/DivulgaMap/releases/download/v1.0.3/divulgamap.apk";
+const VERSAO = "1.0.3";
 
 document.getElementById("baixar").href = APK_URL;
 document.getElementById("versao").textContent = VERSAO;
