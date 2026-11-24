@@ -120,6 +120,8 @@ h2{font-size:clamp(2.4rem,7vw,4.6rem)}
 .contact p{max-width:520px;margin-bottom:28px}
 .mail{display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(1.2rem,3.6vw,2.2rem);border-bottom:3px solid var(--mid);margin-bottom:32px;word-break:break-all}
 .mail:hover{color:var(--purple)}
+.info{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:32px}
+.info .mail{margin-bottom:0}
 .links{display:flex;flex-wrap:wrap;gap:12px}
 footer{background:var(--ink);color:#fff;padding-block:22px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.8rem;opacity:.85}
@@ -373,7 +375,10 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
     <section class="contact wrap" id="contato">
       <h2>Vamos<br>conversar</h2>
       <p>Busco um estágio para aprender e contribuir em projetos reais. Fico à disposição para conversar.</p>
-      <a class="mail" href="mailto:altenhofen.loth@gmail.com">altenhofen.loth@gmail.com</a>
+      <div class="info">
+        <a class="mail" href="mailto:altenhofen.loth@gmail.com">altenhofen.loth@gmail.com</a>
+        <a class="mail" href="tel:+5551989186333">+55 51 98918-6333</a>
+      </div>
       <div class="links">
         <a class="btn btn-dark" href="https://www.linkedin.com/in/maria-luiza-altenhofen-loth" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn btn-dark" href="https://github.com/Lotth00" target="_blank" rel="noopener">GitHub ↗</a>
