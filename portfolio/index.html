@@ -45,6 +45,10 @@ h2{font-size:clamp(2.4rem,7vw,4.6rem)}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:22px}
 .logo{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
 .logo b{color:var(--soft)}
+.menu-btn{display:none;place-items:center;width:44px;height:44px;padding:0;background:none;border:1.5px solid currentColor;border-radius:50%;color:inherit;cursor:pointer;position:relative;z-index:40}
+.menu-btn .x,.menu-btn[aria-expanded=true] .bars{display:none}
+.menu-btn[aria-expanded=true] .x{display:block}
+.scrim{display:none}
 .menu{display:flex;gap:clamp(14px,3vw,34px)}
 .menu a{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
 .menu a:hover{opacity:1;color:var(--soft)}
@@ -80,7 +84,7 @@ h2{font-size:clamp(2.4rem,7vw,4.6rem)}
 .tab{font:inherit;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;border-bottom:2px solid transparent;padding:6px 0;color:var(--mid);cursor:pointer}
 .tab:hover{color:var(--ink)}
 .tab.active{color:var(--ink);border-bottom-color:var(--ink)}
-.proj{display:grid;grid-template-columns:48px 1.5fr 1fr 96px 110px;gap:14px 24px;align-items:center;padding-block:22px;border-top:1.5px solid var(--ink)}
+.proj{display:grid;grid-template-columns:48px 1.5fr 1fr 96px 170px;gap:14px 24px;align-items:center;padding-block:22px;border-top:1.5px solid var(--ink)}
 .proj:last-child{border-bottom:1.5px solid var(--ink)}
 .proj[hidden]{display:none}
 .proj .n{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--mid)}
@@ -90,10 +94,10 @@ h2{font-size:clamp(2.4rem,7vw,4.6rem)}
 .proj .tech small{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-bottom:2px}
 .proj .shot{width:96px;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--soft)}
 .proj .shot img{width:100%;height:100%;object-fit:cover}
+.proj .n{grid-column:1}.proj .main{grid-column:2}.proj .tech{grid-column:3}.proj .shot{grid-column:4}.proj .go{grid-column:5}
 .proj .go{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:right}
-.proj .go a{display:inline-block;border-bottom:1.5px solid var(--ink);padding-bottom:1px}
+.proj .go a{display:inline-block;white-space:nowrap;border-bottom:1.5px solid var(--ink);padding-bottom:1px}
 .proj .go a:hover{color:var(--purple);border-color:var(--purple)}
-.proj .go span{opacity:.5}
 
 /* ---------- Trajetória ---------- */
 .path{background:var(--ink);color:#fff;padding-block:clamp(56px,9vw,104px)}
@@ -120,13 +124,27 @@ h2{font-size:clamp(2.4rem,7vw,4.6rem)}
 footer{background:var(--ink);color:#fff;padding-block:22px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.8rem;opacity:.85}
 
+@media (min-width:861px){
+  .proj .tech{grid-column:3/5;justify-self:center;width:min(230px,100%)}
+  .proj:has(.shot) .tech{grid-column:3;justify-self:start;width:auto}
+}
 @media (max-width:860px){
-  .menu a:not(:last-child){display:none}
+  .logo{display:none}
+  .menu-btn{display:grid}
+  .scrim{display:block;position:fixed;inset:0;background:rgba(20,8,45,.6);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:20}
+  .scrim.open{opacity:1;visibility:visible}
+  .menu{position:fixed;top:0;bottom:0;left:0;width:min(80vw,300px);flex-direction:column;gap:0;padding:88px 28px 28px;background:var(--ink);border-right:1.5px solid rgba(255,255,255,.25);transform:translateX(-100%);visibility:hidden;transition:transform .25s,visibility .25s;z-index:30}
+  .menu.open{transform:none;visibility:visible}
+  .menu a{font-size:.9rem;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15);opacity:1}
   .side{display:none}
-  .hero-grid{grid-template-columns:1fr;align-items:start}
-  .hero-text{order:-1;padding-bottom:28px}
-  .blurb{text-align:left;margin-left:0}
-  .photo{max-width:340px;aspect-ratio:1}
+  .hero-grid{grid-template-columns:minmax(110px,36%) 1fr;gap:16px;align-items:end;margin-top:0}
+  .photo{font-size:3rem;border-radius:16px 16px 0 0}
+  .hero-text{padding-bottom:20px}
+  .blurb{text-align:left;margin:0 0 14px;font-size:clamp(.6rem,1.8vw,.8rem);letter-spacing:.05em;line-height:1.5}
+  .hero h1{font-size:clamp(1.4rem,6.2vw,2.8rem)}
+  .avail{margin-top:16px;gap:10px}
+  .avail .btn{padding:9px 14px;font-size:.66rem}
+  .avail p{font-size:.78rem}
   .row{grid-template-columns:1fr}
   .kv{grid-template-columns:1fr;gap:0}
   .kv dd{margin-bottom:10px}
@@ -138,6 +156,7 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
 </style>
 </head>
 <body>
+<div class="scrim" id="scrim"></div>
 <div class="frame">
 
   <!-- ===== INÍCIO ===== -->
@@ -145,7 +164,11 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
     <div class="wrap">
       <div class="topbar">
         <a href="#inicio" class="logo">ML<b>.</b></a>
-        <nav class="menu" aria-label="Principal">
+        <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+          <svg class="bars" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <nav class="menu" id="menu" aria-label="Principal">
           <a href="#sobre">Sobre</a>
           <a href="#projetos">Projetos</a>
           <a href="#formacao">Formação</a>
@@ -233,7 +256,7 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
             <div class="main"><h3>DivulgaMap</h3><p>App mobile para Android que mostra no mapa as ofertas de empresas de Taquara/RS, com preço, validade e regras de cada oferta e o perfil de quem divulga. TCC individual. A demonstração em vídeo usa dados simulados.</p></div>
             <div class="tech"><small>Desenvolvimento</small>React Native, Node.js, Express, JWT, PostgreSQL</div>
             <div class="shot"><img src="img/divulgamap.jpg" alt="Telas do DivulgaMap" onerror="this.parentNode.remove()"></div>
-            <div class="go"><a href="https://lotth00-divulgamap-site.vercel.app/" target="_blank" rel="noopener">Ver demonstração ↗</a><br><span>Código privado</span></div>
+            <div class="go"><a href="https://lotth00-divulgamap-site.vercel.app/" target="_blank" rel="noopener">Ver demonstração ↗</a></div>
           </article>
 
           <article class="proj" data-cat="dev">
@@ -270,7 +293,7 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
 
           <article class="proj" data-cat="design">
             <span class="n">06</span>
-            <div class="main"><h3>DivulgaMap (design)</h3><p>Design do aplicativo que mostra no mapa as ofertas de empresas de Taquara/RS, com preço, validade e regras de cada oferta.</p></div>
+            <div class="main"><h3>DivulgaMap (design)</h3><p>Protótipo das telas do aplicativo no Figma, com o mapa das empresas de Taquara/RS, a pesquisa e o menu deslizante da tela inicial.</p></div>
             <div class="tech"><small>Design</small>Figma, UI</div>
             <div class="shot"><img src="img/divulgamap-ui.jpg" alt="Design do DivulgaMap no Figma" onerror="this.parentNode.remove()"></div>
             <div class="go"><a href="https://www.figma.com/design/sQgvygfZGDFfbLXLFPwjYA/DivulgaMap?node-id=0-1&amp;t=iiqsOdhm3faQcMm3-1" target="_blank" rel="noopener">Figma ↗</a></div>
@@ -368,6 +391,21 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
 </div>
 
 <script>
+(function(){
+  var btn = document.querySelector('.menu-btn');
+  var menu = document.getElementById('menu');
+  var scrim = document.getElementById('scrim');
+  function toggle(open){
+    menu.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  }
+  btn.addEventListener('click', function(){ toggle(!menu.classList.contains('open')); });
+  scrim.addEventListener('click', function(){ toggle(false); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ toggle(false); }); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') toggle(false); });
+})();
 (function(){
   var tabs = document.querySelectorAll('.tab');
   var items = document.querySelectorAll('.proj');
