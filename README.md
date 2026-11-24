@@ -15,7 +15,7 @@ Atualmente, aprofundo meus conhecimentos em Node.js, Express, JavaScript, bancos
             src="https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin-white&logoColor=fff"
         />
     </a>
-    <a href="https://www.youtube.com/@larissakich">
+    <a href="lotth00-portfolio.vercel.app">
         <img 
             alt="Portfólio" 
             title="Conheça meu portfólio" 
