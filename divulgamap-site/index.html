@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DivulgaMap | Baixar app</title>
-  <meta name="description" content="Veja ofertas de empresas perto de você, direto no mapa. Baixe o DivulgaMap para Android.">
+  <title>DivulgaMap | Demonstração</title>
+  <meta name="description" content="Demonstração do DivulgaMap, app que mostra no mapa as ofertas de empresas perto de você. Projeto de TCC.">
   <meta name="theme-color" content="#7ed957">
   <link rel="icon" href="assets/icone.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,31 +19,23 @@
       <img class="logo" src="assets/logo.png" alt="DivulgaMap">
       <h1>Ofertas perto de você, direto no mapa</h1>
       <p class="lead">
-        Com o DivulgaMap você descobre as empresas da sua região, vê as ofertas
-        que elas estão divulgando e confere preço, validade e regras antes de sair de casa.
+        O DivulgaMap mostra as empresas da sua região e as ofertas que elas divulgam,
+        com preço, validade e regras. Veja o app funcionando no vídeo abaixo.
       </p>
-
-      <!-- Botão de download -->
-      <a id="baixar" class="btn" href="#" download>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Baixar para Android
-      </a>
-      <p class="nota">Arquivo .apk &middot; versão <span id="versao">1.0.3</span> &middot; somente Android</p>
     </section>
 
-    <!-- Como instalar -->
+    <!-- Vídeo da demonstração -->
     <section>
-      <h2>Como instalar</h2>
-      <ol class="passos">
-        <li><span>1</span><div><strong>Toque em Baixar</strong>O arquivo vai para a pasta de downloads do celular.</div></li>
-        <li><span>2</span><div><strong>Abra o arquivo</strong>Se o Android pedir, permita a instalação de apps de fontes externas.</div></li>
-        <li><span>3</span><div><strong>Abra o DivulgaMap</strong>Autorize a localização para ver o que há perto de você.</div></li>
-      </ol>
+      <h2>Demonstração</h2>
+      <video class="video" controls playsinline preload="metadata" poster="assets/logo.png">
+        <source src="assets/demo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
     </section>
 
-    <!-- Sobre o app -->
+    <!-- Funcionalidades -->
     <section>
-      <h2>O que você vai poder fazer</h2>
+      <h2>O que o app faz</h2>
       <div class="cards">
         <article class="card">
           <h3>Ver ofertas</h3>
@@ -59,13 +51,31 @@
         </article>
       </div>
     </section>
+
+    <!-- Tecnologias -->
+    <section>
+      <h2>Tecnologias</h2>
+      <ul class="tags">
+        <li>React Native</li>
+        <li>Expo</li>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>PostgreSQL</li>
+        <li>Cloudinary</li>
+      </ul>
+    </section>
+
+    <!-- Design -->
+    <section class="hero">
+      <h2>Design</h2>
+      <p class="lead">As telas do app foram prototipadas no Figma.</p>
+      <a class="btn" href="https://www.figma.com/design/sQgvygfZGDFfbLXLFPwjYA" target="_blank" rel="noopener">Ver protótipo no Figma</a>
+    </section>
   </main>
 
   <footer>
-    <strong>DivulgaMap</strong> &middot; Projeto de TCC &middot; versão <span id="versao-rodape">1.0.3</span><br>
+    <strong>DivulgaMap</strong> &middot; Projeto de TCC<br>
     <a href="mailto:divulgamap.oficial@gmail.com">divulgamap.oficial@gmail.com</a>
   </footer>
-
-  <script src="app.js"></script>
 </body>
 </html>
