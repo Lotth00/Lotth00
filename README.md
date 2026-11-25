@@ -1,10 +1,10 @@
 # Maria Luiza Altenhofen Loth
 
-**`Desenvolvedora em formação, Web & Game Dev`**
+**`Desenvolvimento web e mobile · Design de interfaces`**
 
-Me chamo Maria Luiza Altenhofen Loth, sou estudante de Informática no Cimol e apreciadora de café, com um foco maior em desenvolvimento de software e criação de jogos digitais.
+Me chamo Maria Luiza Altenhofen Loth, sou estudante de Informática no Cimol, com estágio obrigatório a cumprir para concluir o curso, e apreciadora de café, Gosto de levar uma ideia do protótipo ao código: desenho interfaces no Figma e as desenvolvo com HTML, CSS e JavaScript.
 
-Atualmente, aprofundo meus conhecimentos em Node.js, Express, JavaScript, bancos de dados e React Native por meio do meu Trabalho de Conclusão de Curso (TCC). Busco integrar habilidades técnicas e criatividade no desenvolvimento de experiências interativas, tanto no ambiente web quanto no desenvolvimento de jogos.
+Atualmente, aprofundo meus conhecimentos em Node.js, Express, JavaScript, bancos de dados e React Native por meio do meu Trabalho de Conclusão de Curso (TCC). Busco integrar habilidades técnicas e criatividade no desenvolvimento de experiências interativas.
 
 
 <p align="left">
