@@ -395,6 +395,104 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
 </div>
 
 <script>
+/* Idioma: português por padrão; inglês quando o dispositivo está em inglês (ou ?lang=en) */
+var EN = {
+ "Sobre": "About",
+ "Projetos": "Projects",
+ "Formação": "Education",
+ "Eventos": "Events",
+ "Contato": "Contact",
+ "Ver projetos →": "View projects →",
+ "Entrar em contato": "Get in touch",
+ "Estudante de Técnico em Informática. Desenvolvo aplicativos e sites e desenho interfaces, do protótipo ao código.": "Computing technical student. I build apps and websites and design interfaces, from prototype to code.",
+ "Disponível para estágio a partir de dezembro de 2026": "Available for an internship from December 2026",
+ "Sobre mim": "About me",
+ "Quem sou": "Who I am",
+ "O que faço": "What I do",
+ "Informações": "Details",
+ "Sou estudante do Curso Técnico em Informática na ETE Monteiro Lobato (CIMOL), em Taquara/RS, com estágio obrigatório a cumprir para concluir o curso.": "I'm a student in the Technical Course in Computing at ETE Monteiro Lobato (CIMOL), in Taquara, RS, Brazil, with a mandatory internship still to complete before I finish the course.",
+ "Gosto de aprender na prática e de trabalhar em equipe, como no hackathon Hacktime, da Faccat. Busco um estágio para evoluir em projetos reais.": "I like learning by doing and working in a team, as I did at the Hacktime hackathon by Faccat. I'm looking for an internship to grow on real projects.",
+ "Desde 2024 desenvolvo meu TCC, o DivulgaMap, um aplicativo mobile para empresas de Taquara/RS, feito sozinha. Também desenho interfaces no Figma e as transformo em sites.": "Since 2024 I've been building my capstone project (TCC), DivulgaMap, a mobile app for businesses in Taquara, RS, made solo. I also design interfaces in Figma and turn them into websites.",
+ "Desenvolvimento": "Development",
+ "JavaScript e Java (básico a intermediário), React Native, Node.js, PostgreSQL e C (básico), Express, API REST, JWT": "JavaScript and Java (basic to intermediate), React Native, Node.js, PostgreSQL and C (basic), Express, REST API, JWT",
+ "Figma, protótipos, landing pages, HTML, CSS, noções de UI/UX": "Figma, prototypes, landing pages, HTML, CSS, UI/UX basics",
+ "Ferramentas": "Tools",
+ "Git e GitHub": "Git and GitHub",
+ "Técnico em Informática integrado ao ensino médio, ETE Monteiro Lobato (CIMOL), desde 2024": "Technical course in computing integrated with high school, ETE Monteiro Lobato (CIMOL), since 2024",
+ "Disponibilidade": "Availability",
+ "Manhã ou tarde, até 6h por dia, a partir de dezembro de 2026": "Mornings or afternoons, up to 6 hours a day, from December 2026",
+ "Idiomas": "Languages",
+ "Português nativo, inglês básico a intermediário": "Portuguese (native), English (basic to intermediate)",
+ "Local": "Location",
+ "Taquara, RS": "Taquara, RS, Brazil",
+ "Todos": "All",
+ "App mobile para Android que mostra no mapa as ofertas de empresas de Taquara/RS, com preço, validade e regras de cada oferta e o perfil de quem divulga. TCC individual. A demonstração em vídeo usa dados simulados.": "Android mobile app that shows offers from businesses in Taquara, RS on a map, with the price, validity and rules of each offer and the profile of the business that posts it. Solo capstone project. The video demo uses simulated data.",
+ "Ver demonstração ↗": "Watch demo ↗",
+ "Site de e-commerce de vestidos, desenvolvido a partir do design feito no Figma.": "Dress e-commerce website, built from the design I made in Figma.",
+ "Aplicação de filmes": "Movies app",
+ "Aplicação web que consome uma API de filmes e exibe os dados na interface.": "Web application that consumes a movies API and displays the data in the interface.",
+ "Jogo da Velha": "Tic-Tac-Toe",
+ "Trabalho da disciplina de Programação em Java, com lógica de turnos e verificação de vitória.": "Coursework for the Java Programming class, with turn logic and win checking.",
+ "RPG em C": "RPG in C",
+ "Jogo feito para estudar a lógica de programação por trás de um jogo.": "Game made to study the programming logic behind a game.",
+ "Protótipo das telas do aplicativo no Figma, com o mapa das empresas de Taquara/RS, a pesquisa e o menu deslizante da tela inicial.": "Prototype of the app's screens in Figma, with the map of businesses in Taquara, RS, search and the sliding menu of the home screen.",
+ "Design de site para e-commerce de vestidos.": "Website design for a dress e-commerce store.",
+ "Aplicativo mobile para viajantes se conectarem, com dinâmica inspirada em redes sociais.": "Mobile app for travelers to connect, with social-network-inspired dynamics.",
+ "Duas páginas: uma para um jogo de investigação de emoções e outra para o podcast de informática do colégio.": "Two pages: one for an emotion-investigation game and another for my school's computing podcast.",
+ "Figma, protótipo": "Figma, prototype",
+ "Técnico em Informática": "Computing Technician",
+ "Curso Técnico em Informática integrado ao ensino médio, na ETE Monteiro Lobato (CIMOL), em Taquara/RS. Neste ano comecei o desenvolvimento do TCC, o DivulgaMap.": "Technical course in computing integrated with high school, at ETE Monteiro Lobato (CIMOL), in Taquara, RS. This year I started developing my capstone project (TCC), DivulgaMap.",
+ "Dez 2026": "Dec 2026",
+ "Aulas concluídas e estágio obrigatório": "Classes finished and mandatory internship",
+ "Fim das aulas e início da disponibilidade para estágio, que é obrigatório para a conclusão do curso. Conclusão prevista em julho de 2027.": "Classes end and I become available for the internship, which is required to complete the course. Expected graduation in July 2027.",
+ "Hackathon de 2 dias, em equipe. Desenvolvemos uma aplicação para apoiar o RH na organização e classificação de denúncias, atendendo à exigência legal de um canal de denúncias nas empresas.": "2-day team hackathon. We built an application to help HR organize and classify reports, meeting the legal requirement for a reporting channel in companies.",
+ "Visita técnica com o curso.": "Technical visit with my course.",
+ "Palestras e networking com profissionais de tecnologia.": "Talks and networking with technology professionals.",
+ "Vamos": "Let's",
+ "conversar": "talk",
+ "Busco um estágio para aprender e contribuir em projetos reais. Fico à disposição para conversar.": "I'm looking for an internship to learn and contribute to real projects. Feel free to get in touch.",
+ "Taquara – RS": "Taquara – RS, Brazil",
+ "Abrir menu": "Open menu",
+ "Fechar menu": "Close menu",
+ "Principal": "Main",
+ "Redes": "Social links",
+ "Filtrar projetos": "Filter projects",
+ "Foto de Maria Luiza": "Photo of Maria Luiza",
+ "Telas do DivulgaMap": "DivulgaMap screens",
+ "Site Safira Dresses": "Safira Dresses website",
+ "Jogo da Velha em Java": "Tic-Tac-Toe in Java",
+ "Design do DivulgaMap no Figma": "DivulgaMap design in Figma",
+ "Design do Safira Dresses": "Safira Dresses design",
+ "Protótipo do Nomadoo": "Nomadoo prototype",
+ "Maria Luiza Altenhofen Loth | Portfólio": "Maria Luiza Altenhofen Loth | Portfolio",
+ "Portfólio de Maria Luiza Altenhofen Loth, estudante de Técnico em Informática. Projetos de desenvolvimento e design de interfaces.": "Portfolio of Maria Luiza Altenhofen Loth, computing technical student. Development and interface design projects."
+};
+var isEn = (function(){
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q) return q.toLowerCase() === 'en';
+  var l = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+  return /^en/i.test(l);
+})();
+function tr(t){ return isEn && EN[t] ? EN[t] : t; }
+if (isEn) {
+  document.documentElement.lang = 'en';
+  document.title = tr(document.title);
+  var md = document.querySelector('meta[name=description]');
+  if (md) md.setAttribute('content', tr(md.getAttribute('content')));
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+  while ((n = w.nextNode())) {
+    var t = n.nodeValue.trim();
+    if (t && EN[t]) n.nodeValue = n.nodeValue.replace(t, function(){ return EN[t]; });
+  }
+  document.querySelectorAll('[aria-label],[alt]').forEach(function(e){
+    ['aria-label', 'alt'].forEach(function(a){
+      var v = e.getAttribute(a);
+      if (v && EN[v]) e.setAttribute(a, EN[v]);
+    });
+  });
+}
+</script>
+<script>
 (function(){
   var btn = document.querySelector('.menu-btn');
   var menu = document.getElementById('menu');
@@ -403,7 +501,7 @@ footer{background:var(--ink);color:#fff;padding-block:22px}
     menu.classList.toggle('open', open);
     scrim.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open);
-    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    btn.setAttribute('aria-label', tr(open ? 'Fechar menu' : 'Abrir menu'));
   }
   btn.addEventListener('click', function(){ toggle(!menu.classList.contains('open')); });
   scrim.addEventListener('click', function(){ toggle(false); });
